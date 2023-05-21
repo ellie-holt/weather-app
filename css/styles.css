@@ -1,0 +1,112 @@
+body {
+  font-family: "Fira Sans", sans-serif;
+  line-height: 0.9;
+}
+
+h1 {
+  font-style: italic;
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.wrapper {
+  border: 1px solid rgba(128, 128, 128, 0.356);
+  max-width: 900px;
+}
+
+/*styles for today's weather cards*/
+
+/* .today-cards { */
+/* min-width: max-content; */
+/* } */
+
+.calender-card,
+.weather-card,
+.data-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.calender-card,
+.data-card {
+  justify-content: space-evenly;
+}
+
+.weather-card {
+  max-width: fit-content;
+  justify-content: center;
+}
+
+.city {
+  font-size: 3.375rem;
+  white-space: nowrap;
+}
+
+.date {
+  font-style: italic;
+  line-height: 0.8;
+  font-size: 1.75rem;
+}
+
+.time {
+  font-size: 3.625rem;
+}
+
+.weather-emoji {
+  font-size: 10rem;
+}
+
+.precipitation,
+.humidity,
+.wind {
+  font-size: 1.75rem;
+}
+
+.temperature-value {
+  font-size: 5.25rem;
+}
+
+.temperature-unit {
+  font-size: 2.25rem;
+  top: -0.9em;
+}
+
+.value {
+  font-weight: bold;
+}
+
+/*styles for this week's weather cards*/
+
+h4.day {
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.emoji-temp-layout {
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.week-weather-emoji {
+  font-size: 3rem;
+}
+
+.high {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.week-temp-unit {
+  font-size: 1.125rem;
+  position: relative;
+  top: -0.3em;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="container text-center my-5 p-4 wrapper">
+      <!--heading-->
+      <h1>What is the weather like today?</h1>
+      <!--search-->
+
+      <form id="search-form">
+        <div class="row mx-4 my-2 gy-3">
+          <div class="col-md-7 col-lg-8">
+            <div class="input-group">
+              <input
+                id="search-bar"
+                type="text"
+                class="form-control"
+                placeholder="Type city here..."
+                aria-label="User location"
+                aria-describedby="search-button"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="submit"
+                id="search-button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+          <div class="col-6 col-md-2 col-lg-2">
+            <button type="button" class="btn btn-light">Current</button>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <div class="btn-group" role="group" aria-label="Toggle unit">
+              <button id="convert-temp" type="button" class="btn btn-light">
+                °F
+              </button>
+              <button type="button" class="btn btn-light">km/h</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!--today's weather-->
+      <div class="card-group m-4 p-1 today-cards">
+        <div class="card p-2">
+          <div class="card-body text-end calender-card">
+            <h2 id="user-city" class="card-title city">London</h2>
+            <p id="full-date" class="card-text date">Friday 07 April</p>
+            <p id="current-time" class="card-text time">14:14</p>
+          </div>
+        </div>
+        <div class="card p-2">
+          <div class="card-body weather-card">
+            <h2 class="card-title weather-emoji">⛅</h2>
+            <h3 class="card-title weather-subheading">Partly cloudy</h3>
+          </div>
+        </div>
+        <div class="card p-2">
+          <div class="card-body text-start data-card">
+            <h2 class="card-title">
+              <span id="temp-value" class="temperature-value">14</span
+              ><sup id="temp-unit" class="temperature-unit">°C</sup>
+            </h2>
+            <p class="card-text precipitation">
+              <span class="subheading">Precipitation</span
+              ><span class="value"> 4%</span>
+            </p>
+            <p class="card-text humidity">
+              <span class="subheading">Humidity</span
+              ><span class="value"> 45%</span>
+            </p>
+            <p class="card-text wind">
+              <span class="subheading">Wind</span
+              ><span class="value"> 4<span class="unit"> mph</span></span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--this week's weather-->
+      <div class="card-group mx-2 my-4 p-1">
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Sat</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">⛅</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">16</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      5<span class="week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Sun</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">⛅</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">17</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      <span class="low">11</span
+                      ><span class="low week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Mon</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">🌧️</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">15</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      <span class="low">7</span
+                      ><span class="low week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Tue</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">🌧️</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">14</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      <span class="low">7</span
+                      ><span class="low week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Wed</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">🌧️</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">11</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      <span class="low">7</span
+                      ><span class="low week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card px-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm">
+                <h4 class="card-title day">Thur</h4>
+                <div class="row emoji-temp-layout">
+                  <div class="col">
+                    <p class="card-text week-weather-emoji">🌧️</p>
+                  </div>
+                  <div class="col">
+                    <p class="card-text">
+                      <span class="high">12</span
+                      ><span class="high week-temp-unit">°C</span>
+                    </p>
+                    <p class="card-text">
+                      <span class="low">6</span
+                      ><span class="low week-temp-unit">°C</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>
