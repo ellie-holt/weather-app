@@ -114,9 +114,9 @@ let now = new Date();
 let fullDate = document.querySelector("#full-date");
 let currentTime = document.querySelector("#current-time");
 
-let convertTempButton = document.querySelector("#convert-temp");
-
 let form = document.querySelector("#search-form");
+let convertTempButton = document.querySelector("#convert-temp");
+let currentButton = document.querySelector("#current-temp");
 
 fullDate.innerHTML = formatDate(now);
 currentTime.innerHTML = formatTime(now);
