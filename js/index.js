@@ -99,6 +99,8 @@ let currentTime = document.querySelector("#current-time");
 fullDate.innerHTML = formatDate(now);
 currentTime.innerHTML = formatTime(now);
 
+navigator.geolocation.getCurrentPosition(getPosition);
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
@@ -108,7 +110,6 @@ currentButton.addEventListener("click", getCurrentLocation);
 let convertTempButton = document.querySelector("#convert-temp");
 convertTempButton.addEventListener("click", convertTemp);
 
-navigator.geolocation.getCurrentPosition(getPosition);
 // function toFarenheit(event) {
 //   event.preventDefault();
 //   let convertTempButton = document.querySelector("#convert-temp");
