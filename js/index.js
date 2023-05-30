@@ -38,12 +38,27 @@ function formatTime(time) {
 }
 
 function showWeather(response) {
-  let currentTempHeading = document.querySelector("#temp-value");
+  let userCityElement = document.querySelector("#user-city");
+  let currentTempElement = document.querySelector("#temp-value");
+  let maxTempElement = document.querySelector("#max-temp-value");
+  let minTempElement = document.querySelector("#min-temp-value");
+  let humidityElement = document.querySelector("#humidity-value");
+  let windElement = document.querySelector("#wind-value");
+
   let currentTemp = Math.round(response.data.main.temp);
-  let userCity = document.querySelector("#user-city");
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let minTemp = Math.round(response.data.main.temp_min);
+  let humidity = `${response.data.main.humidity}%`;
+  let wind = Math.round(response.data.wind.speed * 10) / 10;
+
+  userCityElement.innerHTML = response.data.name;
+  currentTempElement.innerHTML = currentTemp;
+  maxTempElement.innerHTML = maxTemp;
+  minTempElement.innerHTML = minTemp;
+  humidityElement.innerHTML = humidity;
+  windElement.innerHTML = wind;
+
   console.log(currentTemp);
-  currentTempHeading.innerHTML = currentTemp;
-  userCity.innerHTML = response.data.name;
 }
 
 function searchCity(event) {
