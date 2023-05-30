@@ -68,7 +68,10 @@ function getPosition(position) {
   console.log(apiUrl);
 }
 
-navigator.geolocation.getCurrentPosition(getPosition);
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
+}
 
 function convertTemp(event) {
   event.preventDefault();
@@ -90,6 +93,22 @@ function convertTemp(event) {
   }
 }
 
+let now = new Date();
+let fullDate = document.querySelector("#full-date");
+let currentTime = document.querySelector("#current-time");
+fullDate.innerHTML = formatDate(now);
+currentTime.innerHTML = formatTime(now);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", searchCity);
+
+let currentButton = document.querySelector("#current-button");
+currentButton.addEventListener("click", getCurrentLocation);
+
+let convertTempButton = document.querySelector("#convert-temp");
+convertTempButton.addEventListener("click", convertTemp);
+
+navigator.geolocation.getCurrentPosition(getPosition);
 // function toFarenheit(event) {
 //   event.preventDefault();
 //   let convertTempButton = document.querySelector("#convert-temp");
@@ -109,18 +128,3 @@ function convertTemp(event) {
 //   tempValue.innerHTML = Math.round((temperature - 32) / 1.8);
 //   tempUnit.innerHTML = "°C";
 // }
-
-let now = new Date();
-let fullDate = document.querySelector("#full-date");
-let currentTime = document.querySelector("#current-time");
-
-let form = document.querySelector("#search-form");
-let convertTempButton = document.querySelector("#convert-temp");
-let currentButton = document.querySelector("#current-temp");
-
-fullDate.innerHTML = formatDate(now);
-currentTime.innerHTML = formatTime(now);
-
-form.addEventListener("submit", searchCity);
-
-convertTempButton.addEventListener("click", convertTemp);
