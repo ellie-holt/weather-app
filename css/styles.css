@@ -26,7 +26,7 @@ a:hover {
 
 .wrapper {
   border: 1px solid rgba(128, 128, 128, 0.356);
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 /*styles for today's weather cards*/
@@ -71,7 +71,7 @@ a:hover {
   font-size: 10rem;
 }
 
-.precipitation,
+.max-min,
 .humidity,
 .wind {
   font-size: 1.75rem;
@@ -87,6 +87,11 @@ a:hover {
 }
 
 .value {
+  font-weight: bold;
+}
+
+.unit {
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
