@@ -44,12 +44,15 @@ function showWeather(response) {
   let minTempElement = document.querySelector("#min-temp-value");
   let humidityElement = document.querySelector("#humidity-value");
   let windElement = document.querySelector("#wind-value");
+  let descriptionElement = document.querySelector("#weather-description");
+  // let iconElement = document.querySelector("#weather-icon");
 
   let currentTemp = Math.round(response.data.main.temp);
   let maxTemp = Math.round(response.data.main.temp_max);
   let minTemp = Math.round(response.data.main.temp_min);
   let humidity = `${response.data.main.humidity}%`;
   let wind = Math.round(response.data.wind.speed * 10) / 10;
+  let description = response.data.weather[0].description;
 
   userCityElement.innerHTML = response.data.name;
   currentTempElement.innerHTML = currentTemp;
@@ -57,6 +60,7 @@ function showWeather(response) {
   minTempElement.innerHTML = minTemp;
   humidityElement.innerHTML = humidity;
   windElement.innerHTML = wind;
+  descriptionElement.innerHTML = description;
 
   console.log(currentTemp);
 }
