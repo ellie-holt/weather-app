@@ -45,7 +45,7 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#humidity-value");
   let windElement = document.querySelector("#wind-value");
   let descriptionElement = document.querySelector("#weather-description");
-  // let iconElement = document.querySelector("#weather-icon");
+  let iconElement = document.querySelector("#weather-icon");
 
   let currentTemp = Math.round(response.data.main.temp);
   let maxTemp = Math.round(response.data.main.temp_max);
@@ -53,6 +53,7 @@ function showWeather(response) {
   let humidity = `${response.data.main.humidity}%`;
   let wind = Math.round(response.data.wind.speed * 10) / 10;
   let description = response.data.weather[0].description;
+  let iconCode = response.data.weather[0].icon;
 
   userCityElement.innerHTML = response.data.name;
   currentTempElement.innerHTML = currentTemp;
@@ -61,6 +62,9 @@ function showWeather(response) {
   humidityElement.innerHTML = humidity;
   windElement.innerHTML = wind;
   descriptionElement.innerHTML = description;
+
+  iconElement.setAttribute("src", `../img/${iconCode}.svg`);
+  iconElement.setAttribute("alt", description);
 
   console.log(currentTemp);
 }
