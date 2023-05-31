@@ -29,6 +29,10 @@ a:hover {
   max-width: 1200px;
 }
 
+.inactive {
+  display: none;
+}
+
 /*styles for today's weather cards*/
 
 /* .today-cards { */

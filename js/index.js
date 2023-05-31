@@ -47,7 +47,9 @@ function showWeather(response) {
   let descriptionElement = document.querySelector("#weather-description");
   let iconElement = document.querySelector("#weather-icon");
 
-  let currentTemp = Math.round(response.data.main.temp);
+  celciusTemperature = response.data.main.temp;
+
+  let currentTemp = Math.round(celciusTemperature);
   let maxTemp = Math.round(response.data.main.temp_max);
   let minTemp = Math.round(response.data.main.temp_min);
   let humidity = `${response.data.main.humidity}%`;
@@ -96,25 +98,51 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(getPosition);
 }
 
-function convertTemp(event) {
+function toFarenheit(event) {
   event.preventDefault();
-  let convertTempButton = document.querySelector("#convert-temp");
-  let tempValue = document.querySelector("#temp-value");
-  let tempUnit = document.querySelector("#temp-unit");
-  let temperature = tempValue.innerHTML;
-  console.log(temperature);
-  let farenheitTemp = Math.round(temperature * 1.8 + 32);
-  let celciusTemp = Math.round((temperature - 32) / 1.8);
-  if (tempUnit.innerHTML === "°C") {
-    convertTempButton.innerHTML = "°C";
-    tempValue.innerHTML = farenheitTemp;
-    tempUnit.innerHTML = "°F";
-  } else {
-    convertTempButton.innerHTML = "°F";
-    tempValue.innerHTML = celciusTemp;
-    tempUnit.innerHTML = "°C";
-  }
+  let currentTempValueElement = document.querySelector("#temp-value");
+  let currentTempUnitElement = document.querySelector("#temp-unit");
+
+  let farenheitTemperature = celciusTemperature * 1.8 + 32;
+
+  toCelciusButton.classList.remove("inactive");
+  toFarenheitButton.classList.add("inactive");
+
+  currentTempValueElement.innerHTML = Math.round(farenheitTemperature);
+  currentTempUnitElement.innerHTML = "°F";
 }
+
+function toCelcius(event) {
+  event.preventDefault();
+  let currentTempValueElement = document.querySelector("#temp-value");
+  let currentTempUnitElement = document.querySelector("#temp-unit");
+
+  toFarenheitButton.classList.remove("inactive");
+  toCelciusButton.classList.add("inactive");
+
+  currentTempValueElement.innerHTML = Math.round(celciusTemperature);
+  currentTempUnitElement.innerHTML = "°C";
+}
+
+// function convertTemp(event) {
+//   event.preventDefault();
+//   let convertTempButton = document.querySelector("#convert-temp");
+//   let tempValue = document.querySelector("#temp-value");
+//   let tempUnit = document.querySelector("#temp-unit");
+//   let temperature = tempValue.innerHTML;
+//   console.log(temperature);
+//   let farenheitTemp = Math.round(temperature * 1.8 + 32);
+//   let celciusTemp = Math.round((temperature - 32) / 1.8);
+//   if (tempUnit.innerHTML === "°C") {
+//     convertTempButton.innerHTML = "°C";
+//     tempValue.innerHTML = farenheitTemp;
+//     tempUnit.innerHTML = "°F";
+//   } else {
+//     convertTempButton.innerHTML = "°F";
+//     tempValue.innerHTML = celciusTemp;
+//     tempUnit.innerHTML = "°C";
+//   }
+// }
 
 let now = new Date();
 let fullDate = document.querySelector("#full-date");
@@ -124,14 +152,19 @@ currentTime.innerHTML = formatTime(now);
 
 navigator.geolocation.getCurrentPosition(getPosition);
 
+let celciusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-let convertTempButton = document.querySelector("#convert-temp");
-convertTempButton.addEventListener("click", convertTemp);
+let toFarenheitButton = document.querySelector("#farenheit-button");
+toFarenheitButton.addEventListener("click", toFarenheit);
+
+let toCelciusButton = document.querySelector("#celcius-button");
+toCelciusButton.addEventListener("click", toCelcius);
 
 // function toFarenheit(event) {
 //   event.preventDefault();
