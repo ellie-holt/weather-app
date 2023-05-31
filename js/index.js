@@ -48,10 +48,16 @@ function showWeather(response) {
   let iconElement = document.querySelector("#weather-icon");
 
   celciusTemperature = response.data.main.temp;
+  maxCelciusTemperature = response.data.main.temp_max;
+  minCelciusTemperature = response.data.main.temp_min;
 
   //This is to revert back to celcius as the default to prevent bugs. A different work-around would probably be better but this works for the time being.
   let currentTempUnitElement = document.querySelector("#temp-unit");
   currentTempUnitElement.innerHTML = "°C";
+  let maxTempUnitElement = document.querySelector("#max-temp-unit");
+  maxTempUnitElement.innerHTML = "°C";
+  let minTempUnitElement = document.querySelector("#min-temp-unit");
+  minTempUnitElement.innerHTML = "°C";
   toCelciusButton.classList.add("inactive");
   toFarenheitButton.classList.remove("inactive");
 
@@ -64,8 +70,8 @@ function showWeather(response) {
   toMphButton.classList.remove("inactive");
 
   let currentTemp = Math.round(celciusTemperature);
-  let maxTemp = Math.round(response.data.main.temp_max);
-  let minTemp = Math.round(response.data.main.temp_min);
+  let maxTemp = Math.round(maxCelciusTemperature);
+  let minTemp = Math.round(minCelciusTemperature);
   let humidity = `${response.data.main.humidity}%`;
   let wind = Math.round(metrespersecondWindSpeed * 10) / 10;
   let description = response.data.weather[0].description;
@@ -116,26 +122,44 @@ function toFarenheit(event) {
   event.preventDefault();
   let currentTempValueElement = document.querySelector("#temp-value");
   let currentTempUnitElement = document.querySelector("#temp-unit");
+  let maxTempValueElement = document.querySelector("#max-temp-value");
+  let maxTempUnitElement = document.querySelector("#max-temp-unit");
+  let minTempValueElement = document.querySelector("#min-temp-value");
+  let minTempUnitElement = document.querySelector("#min-temp-unit");
 
   let farenheitTemperature = celciusTemperature * 1.8 + 32;
+  let maxFarenheitTemperature = maxCelciusTemperature * 1.8 + 32;
+  let minFarenheitTemperature = minCelciusTemperature * 1.8 + 32;
 
   toCelciusButton.classList.remove("inactive");
   toFarenheitButton.classList.add("inactive");
 
   currentTempValueElement.innerHTML = Math.round(farenheitTemperature);
   currentTempUnitElement.innerHTML = "°F";
+  maxTempValueElement.innerHTML = Math.round(maxFarenheitTemperature);
+  maxTempUnitElement.innerHTML = "°F";
+  minTempValueElement.innerHTML = Math.round(minFarenheitTemperature);
+  minTempUnitElement.innerHTML = "°F";
 }
 
 function toCelcius(event) {
   event.preventDefault();
   let currentTempValueElement = document.querySelector("#temp-value");
   let currentTempUnitElement = document.querySelector("#temp-unit");
+  let maxTempValueElement = document.querySelector("#max-temp-value");
+  let maxTempUnitElement = document.querySelector("#max-temp-unit");
+  let minTempValueElement = document.querySelector("#min-temp-value");
+  let minTempUnitElement = document.querySelector("#min-temp-unit");
 
   toFarenheitButton.classList.remove("inactive");
   toCelciusButton.classList.add("inactive");
 
   currentTempValueElement.innerHTML = Math.round(celciusTemperature);
   currentTempUnitElement.innerHTML = "°C";
+  maxTempValueElement.innerHTML = Math.round(maxCelciusTemperature);
+  maxTempUnitElement.innerHTML = "°C";
+  minTempValueElement.innerHTML = Math.round(minCelciusTemperature);
+  minTempUnitElement.innerHTML = "°C";
 }
 
 function toMph(event) {
@@ -174,6 +198,8 @@ currentTime.innerHTML = formatTime(now);
 navigator.geolocation.getCurrentPosition(getPosition);
 
 let celciusTemperature = null;
+let maxCelciusTemperature = null;
+let minCelciusTemperature = null;
 let metrespersecondWindSpeed = null;
 
 let searchForm = document.querySelector("#search-form");
