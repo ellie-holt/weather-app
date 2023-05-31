@@ -49,6 +49,12 @@ function showWeather(response) {
 
   celciusTemperature = response.data.main.temp;
 
+  //This is to revert back to celcius as the default to prevent bugs. A different work-around would probably be better but this works for the time being.
+  let currentTempUnitElement = document.querySelector("#temp-unit");
+  currentTempUnitElement.innerHTML = "°C";
+  toCelciusButton.classList.add("inactive");
+  toFarenheitButton.classList.remove("inactive");
+
   let currentTemp = Math.round(celciusTemperature);
   let maxTemp = Math.round(response.data.main.temp_max);
   let minTemp = Math.round(response.data.main.temp_min);
