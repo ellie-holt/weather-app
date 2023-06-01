@@ -91,6 +91,42 @@ function showWeather(response) {
   console.log(currentTemp);
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = ``;
+  let days = ["Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="card px-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <h4 class="card-title day">${day}</h4>
+            <div class="row emoji-temp-layout">
+              <div class="col">
+                <p class="card-text week-weather-emoji">⛅</p>
+              </div>
+              <div class="col">
+                <p class="card-text">
+                  <span class="high">16</span
+                      ><span class="high week-temp-unit">°C</span>
+                </p>
+                <p class="card-text">
+                      5<span class="week-temp-unit">°C</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchCity(event) {
   event.preventDefault();
   let searchBar = document.querySelector("#search-bar");
@@ -196,6 +232,8 @@ fullDate.innerHTML = formatDate(now);
 currentTime.innerHTML = formatTime(now);
 
 navigator.geolocation.getCurrentPosition(getPosition);
+
+showForecast();
 
 let celciusTemperature = null;
 let maxCelciusTemperature = null;
