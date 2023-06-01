@@ -117,7 +117,10 @@ function showForecast(response) {
     if (index > 0 && index < 6) {
       let iconCode = day.weather[0].icon;
       let description = day.weather[0].description;
-      console.log(iconCode);
+      forecastMaxCelciusTemperature = day.temp.max;
+      forecastMinCelciusTemperature = day.temp.min;
+      console.log(forecastMaxCelciusTemperature);
+      console.log(forecastMinCelciusTemperature);
       forecastHTML += `<div class="card px-3">
       <div class="card-body">
         <div class="row">
@@ -129,11 +132,16 @@ function showForecast(response) {
               </div>
               <div class="col">
                 <p class="card-text">
-                  <span class="high">${day.temp.max}</span
-                      ><span class="high week-temp-unit">°C</span>
+                  <span class="max-forecast-value high">${Math.round(
+                    forecastMaxCelciusTemperature
+                  )}</span
+                      ><span class="max-forecast-unit high week-temp-unit">°C</span>
                 </p>
                 <p class="card-text">
-                      ${day.temp.min}<span class="week-temp-unit">°C</span>
+                  <span class="min-forecast-value">${Math.round(
+                    forecastMinCelciusTemperature
+                  )}</span
+                      ><span class="min-forecast-unit week-temp-unit">°C</span>
                 </p>
               </div>
             </div>
@@ -183,9 +191,18 @@ function toFarenheit(event) {
   let minTempValueElement = document.querySelector("#min-temp-value");
   let minTempUnitElement = document.querySelector("#min-temp-unit");
 
+  let maxForecastValueElement = document.querySelector(".max-forecast-value");
+  let maxForecastUnitElement = document.querySelector(".max-forecast-unit");
+  let minForecastValueElement = document.querySelector(".min-forecast-value");
+  let minForecastUnitElement = document.querySelector(".min-forecast-unit");
+
   let farenheitTemperature = celciusTemperature * 1.8 + 32;
   let maxFarenheitTemperature = maxCelciusTemperature * 1.8 + 32;
   let minFarenheitTemperature = minCelciusTemperature * 1.8 + 32;
+  let forecastMaxFarenheitTemperature =
+    forecastMaxCelciusTemperature * 1.8 + 32;
+  let forecastMinFarenheitTemperature =
+    forecastMinCelciusTemperature * 1.8 + 32;
 
   toCelciusButton.classList.remove("inactive");
   toFarenheitButton.classList.add("inactive");
@@ -196,6 +213,15 @@ function toFarenheit(event) {
   maxTempUnitElement.innerHTML = "°F";
   minTempValueElement.innerHTML = Math.round(minFarenheitTemperature);
   minTempUnitElement.innerHTML = "°F";
+
+  maxForecastValueElement.innerHTML = Math.round(
+    forecastMaxFarenheitTemperature
+  );
+  maxForecastUnitElement.innerHTML = "°F";
+  minForecastValueElement.innerHTML = Math.round(
+    forecastMinFarenheitTemperature
+  );
+  minForecastUnitElement.innerHTML = "°F";
 }
 
 function toCelcius(event) {
@@ -257,6 +283,8 @@ let celciusTemperature = null;
 let maxCelciusTemperature = null;
 let minCelciusTemperature = null;
 let metrespersecondWindSpeed = null;
+let forecastMaxCelciusTemperature = null;
+let forecastMinCelciusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
@@ -275,43 +303,3 @@ toMphButton.addEventListener("click", toMph);
 
 let toMetrespersecondButton = document.querySelector("#metrespersecond-button");
 toMetrespersecondButton.addEventListener("click", toMetrespersecond);
-
-// function toFarenheit(event) {
-//   event.preventDefault();
-//   let convertTempButton = document.querySelector("#convert-temp");
-//   let tempValue = document.querySelector("#temp-value");
-//   let tempUnit = document.querySelector("#temp-unit");
-//   convertTempButton.innerHTML = "°C";
-//   tempValue.innerHTML = Math.round(temperature * 1.8 + 32);
-//   tempUnit.innerHTML = "°F";
-// }
-
-// function toCelcius(event) {
-//   event.preventDefault();
-//   let convertTempButton = document.querySelector("#convert-temp");
-//   let tempValue = document.querySelector("#temp-value");
-//   let tempUnit = document.querySelector("#temp-unit");
-//   convertTempButton.innerHTML = "°F";
-//   tempValue.innerHTML = Math.round((temperature - 32) / 1.8);
-//   tempUnit.innerHTML = "°C";
-// }
-
-// function convertTemp(event) {
-//   event.preventDefault();
-//   let convertTempButton = document.querySelector("#convert-temp");
-//   let tempValue = document.querySelector("#temp-value");
-//   let tempUnit = document.querySelector("#temp-unit");
-//   let temperature = tempValue.innerHTML;
-//   console.log(temperature);
-//   let farenheitTemp = Math.round(temperature * 1.8 + 32);
-//   let celciusTemp = Math.round((temperature - 32) / 1.8);
-//   if (tempUnit.innerHTML === "°C") {
-//     convertTempButton.innerHTML = "°C";
-//     tempValue.innerHTML = farenheitTemp;
-//     tempUnit.innerHTML = "°F";
-//   } else {
-//     convertTempButton.innerHTML = "°F";
-//     tempValue.innerHTML = celciusTemp;
-//     tempUnit.innerHTML = "°C";
-//   }
-// }
