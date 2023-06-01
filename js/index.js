@@ -88,10 +88,18 @@ function showWeather(response) {
   iconElement.setAttribute("src", `../img/${iconCode}.svg`);
   iconElement.setAttribute("alt", description);
 
-  console.log(currentTemp);
+  getForecast(response.data.coord);
 }
 
-function showForecast() {
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = ``;
@@ -232,8 +240,6 @@ fullDate.innerHTML = formatDate(now);
 currentTime.innerHTML = formatTime(now);
 
 navigator.geolocation.getCurrentPosition(getPosition);
-
-showForecast();
 
 let celciusTemperature = null;
 let maxCelciusTemperature = null;
