@@ -37,6 +37,16 @@ function formatTime(time) {
   return formattedTime;
 }
 
+function formatDay(timestamp) {
+  console.log(timestamp);
+  let date = new Date(timestamp * 1000);
+  console.log(date);
+  let day = date.getDay();
+  console.log(day);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 function showWeather(response) {
   let userCityElement = document.querySelector("#user-city");
   let currentTempElement = document.querySelector("#temp-value");
@@ -92,37 +102,38 @@ function showWeather(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
 
 function showForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = ``;
-  let days = ["Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="card px-3">
+  forecast.forEach(function (day, index) {
+    if (index > 0 && index < 6) {
+      let iconCode = day.weather[0].icon;
+      let description = day.weather[0].description;
+      console.log(iconCode);
+      forecastHTML += `<div class="card px-3">
       <div class="card-body">
         <div class="row">
           <div class="col-sm">
-            <h4 class="card-title day">${day}</h4>
+            <h4 class="card-title day">${formatDay(day.dt)}</h4>
             <div class="row emoji-temp-layout">
               <div class="col">
-                <p class="card-text week-weather-emoji">⛅</p>
+                <img src="../img/${iconCode}.svg" alt="${description}"/>
               </div>
               <div class="col">
                 <p class="card-text">
-                  <span class="high">16</span
+                  <span class="high">${day.temp.max}</span
                       ><span class="high week-temp-unit">°C</span>
                 </p>
                 <p class="card-text">
-                      5<span class="week-temp-unit">°C</span>
+                      ${day.temp.min}<span class="week-temp-unit">°C</span>
                 </p>
               </div>
             </div>
@@ -130,6 +141,7 @@ function showForecast(response) {
         </div>
       </div>
     </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
