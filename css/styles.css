@@ -52,7 +52,6 @@ a:hover {
 }
 
 .weather-card {
-  max-width: fit-content;
   justify-content: center;
 }
 
