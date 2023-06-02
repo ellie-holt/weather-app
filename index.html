@@ -82,51 +82,32 @@
       </form>
 
       <!--today's weather-->
-      <div class="card-group m-4 p-1 today-cards">
-        <div class="card p-2">
-          <div class="card-body text-end calender-card">
-            <h2 id="user-city" class="card-title city">London</h2>
-            <p id="full-date" class="card-text date">Friday 07 April</p>
-            <p id="current-time" class="card-text time">14:14</p>
-          </div>
+      <div class="current-weather row mx-2 mb-3">
+        <div class="calender-column col-md-4 col-lg-4">
+          <h2 id="user-city" class="city">London</h2>
+          <p id="full-date" class="date">Friday 07 April</p>
+          <p id="current-time" class="time">14:14</p>
         </div>
-        <div class="card p-2">
-          <div class="card-body weather-card">
-            <img
-              id="weather-icon"
-              class="card-image-top"
-              src="/img/01n.svg"
-              alt=""
-            />
-            <h3 id="weather-description" class="card-title weather-description">
-              Partly cloudy
-            </h3>
-          </div>
+        <div class="weather-column col-md-4 col-lg-4">
+          <img id="weather-icon" src="/img/01n.svg" alt="" />
+          <h3 id="weather-description" class="description">Partly cloudy</h3>
         </div>
-        <div class="card p-1">
-          <div class="card-body text-start data-card">
-            <h2 class="card-title">
-              <span id="temp-value" class="temperature-value">14</span
-              ><sup id="temp-unit" class="temperature-unit">°C</sup>
-            </h2>
-            <p class="card-text max-min">
-              <span class="subheading">Max </span
-              ><span id="max-temp-value" class="value">14</span
-              ><span id="max-temp-unit" class="unit">°C</span
-              ><span class="subheading"> | Min </span
-              ><span id="min-temp-value" class="value">14</span
-              ><span id="min-temp-unit" class="unit">°C</span>
-            </p>
-            <p class="card-text humidity">
-              <span class="subheading">Humidity </span
-              ><span id="humidity-value" class="value">45%</span>
-            </p>
-            <p class="card-text wind">
-              <span class="subheading">Wind </span
-              ><span id="wind-value" class="value">4.1</span
-              ><span id="wind-unit" class="unit"> m/s</span>
-            </p>
-          </div>
+        <div class="data-column col-md-4 col-lg-4">
+          <h2>
+            <span id="temp-value" class="temperature-value">14</span
+            ><sup id="temp-unit" class="temperature-unit">°C</sup>
+          </h2>
+          <p class="max-min">
+            Max <span id="max-temp-value" class="value">14</span
+            ><span id="max-temp-unit" class="unit">°C</span> | Min
+            <span id="min-temp-value" class="value">14</span
+            ><span id="min-temp-unit" class="unit">°C</span>
+          </p>
+          <p>Humidity <span id="humidity-value" class="value">45%</span></p>
+          <p>
+            Wind <span id="wind-value" class="value">4.1</span
+            ><span id="wind-unit" class="unit"> m/s</span>
+          </p>
         </div>
       </div>
 
