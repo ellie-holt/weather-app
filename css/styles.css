@@ -69,6 +69,7 @@ img {
 
 .city {
   font-size: 3rem;
+  text-overflow: ellipsis;
 }
 
 .date {
