@@ -44,31 +44,31 @@ img {
   margin-top: 30px;
 }
 
-.calender-column,
-.weather-column,
-.data-column {
+.column {
   display: flex;
   flex-direction: column;
   border: solid 1px rgba(128, 128, 128, 0.356);
+  padding: 5px;
 }
 
-.calender-column {
+.calender {
   text-align: right;
   justify-content: space-evenly;
+  padding-right: 10px;
 }
 
-.weather-column {
+.weather-description {
   justify-content: center;
 }
 
-.data-column {
+.data {
   text-align: left;
   justify-content: space-evenly;
+  padding-left: 10px;
 }
 
 .city {
   font-size: 3rem;
-  text-overflow: ellipsis;
 }
 
 .date {
@@ -135,3 +135,15 @@ h4.day {
   position: relative;
   top: -0.3em;
 }
+
+@media screen and (max-width: 768px) {
+  .max-min {
+    white-space: normal;
+  }
+  .break-point::before {
+    content: "\a";
+    display: block;
+  }
+}
+
+/* @media screen and (max-width: 575px) */
