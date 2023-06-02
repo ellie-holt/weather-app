@@ -41,7 +41,6 @@ img {
 /*styles for today's weather cards*/
 
 .current-weather {
-  /* border: solid 1px rgba(128, 128, 128, 0.356); */
   margin-top: 30px;
 }
 
@@ -69,7 +68,7 @@ img {
 
 .city {
   font-size: 3rem;
-  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .date {
