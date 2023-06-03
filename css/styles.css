@@ -126,6 +126,20 @@ img {
 
 /*styles for forecast*/
 
+.weekly-forecast {
+  margin: 25px auto;
+  max-width: 900px;
+  width: 95%;
+}
+
+.forecast-col {
+  border: solid 1px rgba(128, 128, 128, 0.356);
+}
+
+.forecast-contents {
+  flex-wrap: nowrap;
+}
+
 h4.day {
   font-size: 1.5rem;
   font-weight: normal;
