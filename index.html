@@ -23,7 +23,7 @@
     <title>Weather app</title>
   </head>
   <body>
-    <div class="container text-center my-5 p-4 wrapper">
+    <div class="container text-center p-4 wrapper">
       <!--heading-->
       <h1>What is the weather like today?</h1>
       <!--search-->
@@ -112,6 +112,29 @@
             Wind <span id="wind-value" class="value">4.1</span
             ><span id="wind-unit" class="unit"> m/s</span>
           </p>
+        </div>
+      </div>
+
+      <!--today's weather-->
+      <div class="current-weather row mx-2">
+        <div class="col-6 city-column">
+          <h2 id="user-city" class="city">London</h2>
+        </div>
+        <div class="col-6 calender-column">
+          <p id="current-time" class="time">14:14</p>
+          <p id="full-date" class="date">Fri 07 Apr</p>
+        </div>
+        <div class="col-5 description-column">
+          <h3 id="weather-description" class="description">Partly cloudy</h3>
+        </div>
+        <div class="col-2 icon-column">
+          <img id="weather-icon" src="/img/01n.svg" alt="" />
+        </div>
+        <div class="col-5 temp-column">
+          <h2>
+            <span id="temp-value" class="temperature-value">14</span
+            ><sup id="temp-unit" class="temperature-unit">°C</sup>
+          </h2>
         </div>
       </div>
 
