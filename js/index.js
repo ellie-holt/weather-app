@@ -106,41 +106,36 @@ function showForecast(response) {
 
   let forecastHTML = ``;
   forecast.forEach(function (day, index) {
-    if (index > 0 && index < 6) {
+    if (index > 0 && index < 7) {
       let iconCode = day.weather[0].icon;
       let description = day.weather[0].description;
       forecastMaxCelciusTemperature = day.temp.max;
       forecastMinCelciusTemperature = day.temp.min;
       console.log(forecastMaxCelciusTemperature);
       console.log(forecastMinCelciusTemperature);
-      forecastHTML += `<div class="card px-3">
-      <div class="card-body">
-        <div class="row">
+      forecastHTML += `
           <div class="col-sm">
-            <h4 class="card-title day">${formatDay(day.dt)}</h4>
-            <div class="row emoji-temp-layout">
+            <h4 class="day">${formatDay(day.dt)}</h4>
+            <div class="row">
               <div class="col">
-                <img src="../img/${iconCode}.svg" alt="${description}"/>
+                <img class="forecast-icon" src="../img/${iconCode}.svg" alt="${description}"/>
               </div>
               <div class="col">
-                <p class="card-text">
+                <p>
                   <span class="max-forecast-value high">${Math.round(
                     forecastMaxCelciusTemperature
                   )}</span
-                      ><span class="max-forecast-unit high week-temp-unit">°C</span>
+                      ><span class="max-forecast-unit high forecast-unit">°C</span>
                 </p>
-                <p class="card-text">
+                <p>
                   <span class="min-forecast-value">${Math.round(
                     forecastMinCelciusTemperature
                   )}</span
-                      ><span class="min-forecast-unit week-temp-unit">°C</span>
+                      ><span class="min-forecast-unit forecast-unit">°C</span>
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
+          </div>`;
     }
   });
 
