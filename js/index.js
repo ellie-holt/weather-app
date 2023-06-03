@@ -114,7 +114,7 @@ function showForecast(response) {
       console.log(forecastMaxCelciusTemperature);
       console.log(forecastMinCelciusTemperature);
       forecastHTML += `
-          <div class="col-6 col-sm-4 col-lg-2 forecast-col">
+          <div class="col-6 col-sm-4 col-lg-2 pt-2 forecast-col">
             <div class="row">
               <h4 class="day">${formatDay(day.dt)}</h4>
             </div>

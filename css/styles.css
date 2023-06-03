@@ -198,6 +198,7 @@ h4.day {
   }
   img {
     max-width: 100px;
+    z-index: 1;
   }
   .city-column {
     align-content: center;
