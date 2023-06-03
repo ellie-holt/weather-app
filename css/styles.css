@@ -27,6 +27,7 @@ a:hover {
 img {
   max-width: 200px;
   object-fit: cover;
+  z-index: 1;
 }
 
 .wrapper {
