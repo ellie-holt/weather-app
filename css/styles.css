@@ -42,7 +42,9 @@ img {
 /*styles for today's weather*/
 
 .current-weather {
-  margin-top: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+  width: 95%;
 }
 
 [class$="-column"] {
@@ -154,6 +156,9 @@ h4.day {
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
+  }
+  .current-weather {
+    margin: 20px auto;
   }
   .city {
     font-size: 2.5rem;
