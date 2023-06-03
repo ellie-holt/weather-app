@@ -83,16 +83,14 @@
 
       <!--today's weather-->
       <div class="current-weather row mx-2">
-        <div class="calender column col-sm-4 col-md-4 col-lg-4">
+        <div class="col-6 city-column">
           <h2 id="user-city" class="city">London</h2>
-          <p id="full-date" class="date">Friday 07 April</p>
+        </div>
+        <div class="col-6 calender-column">
           <p id="current-time" class="time">14:14</p>
+          <p id="full-date" class="date">Fri 07 Apr</p>
         </div>
-        <div class="weather-description column col-sm-4 col-md-4 col-lg-4">
-          <img id="weather-icon" src="/img/01n.svg" alt="" />
-          <h3 id="weather-description" class="description">Partly cloudy</h3>
-        </div>
-        <div class="data column col-sm-4 col-md-4 col-lg-4">
+        <div class="col-5 temp-column">
           <h2>
             <span id="temp-value" class="temperature-value">14</span
             ><sup id="temp-unit" class="temperature-unit">°C</sup>
@@ -105,6 +103,12 @@
               ><span id="min-temp-unit" class="unit">°C</span></span
             >
           </p>
+        </div>
+        <div class="col-2 icon-column">
+          <img id="weather-icon" src="/img/01n.svg" alt="" />
+        </div>
+        <div class="col-5 description-column">
+          <h3 id="weather-description" class="description">Partly cloudy</h3>
           <p class="humidity">
             Humidity <span id="humidity-value" class="value">45%</span>
           </p>
@@ -112,29 +116,6 @@
             Wind <span id="wind-value" class="value">4.1</span
             ><span id="wind-unit" class="unit"> m/s</span>
           </p>
-        </div>
-      </div>
-
-      <!--today's weather-->
-      <div class="current-weather row mx-2">
-        <div class="col-6 city-column">
-          <h2 id="user-city" class="city">London</h2>
-        </div>
-        <div class="col-6 calender-column">
-          <p id="current-time" class="time">14:14</p>
-          <p id="full-date" class="date">Fri 07 Apr</p>
-        </div>
-        <div class="col-5 description-column">
-          <h3 id="weather-description" class="description">Partly cloudy</h3>
-        </div>
-        <div class="col-2 icon-column">
-          <img id="weather-icon" src="/img/01n.svg" alt="" />
-        </div>
-        <div class="col-5 temp-column">
-          <h2>
-            <span id="temp-value" class="temperature-value">14</span
-            ><sup id="temp-unit" class="temperature-unit">°C</sup>
-          </h2>
         </div>
       </div>
 
