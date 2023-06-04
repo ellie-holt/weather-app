@@ -163,7 +163,9 @@ h4.day {
   top: -0.3em;
 }
 
-/*responsive breakpoints*/
+/*RESPONSIVE BREAKPOINT*/
+
+/*sm breakpoint*/
 
 @media screen and (max-width: 768px) {
   h1 {
@@ -191,6 +193,14 @@ h4.day {
     font-size: 2rem;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .city {
+    font-size: 2.2rem;
+  }
+}
+
+/*xs breakpoint*/
 
 @media screen and (max-width: 575.98px) {
   h1 {
@@ -231,6 +241,7 @@ h4.day {
   }
   .city {
     text-align: center;
+    font-size: 2.4rem;
   }
   .max-min {
     white-space: normal;
