@@ -204,7 +204,7 @@ h4.day {
 
 @media screen and (max-width: 575.98px) {
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   img {
     max-width: 100px;
@@ -267,7 +267,10 @@ h4.day {
   }
 }
 
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 455px) {
+  h1 {
+    font-size: 1.4rem;
+  }
   .icon-column {
     justify-content: center;
   }
