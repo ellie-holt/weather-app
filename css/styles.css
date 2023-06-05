@@ -163,11 +163,19 @@ h4.day {
   top: -0.3em;
 }
 
-/*RESPONSIVE BREAKPOINT*/
+/*RESPONSIVE BREAKPOINTS*/
+
+/*md breakpoint*/
+
+@media screen and (max-width: 991.98px) {
+  .forecast-contents {
+    align-items: center;
+  }
+}
 
 /*sm breakpoint*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
   h1 {
     font-size: 2.2rem;
   }
@@ -191,9 +199,6 @@ h4.day {
   }
   .temperature-unit {
     font-size: 2rem;
-  }
-  .weekly-forecast {
-    align-items: center;
   }
 }
 
