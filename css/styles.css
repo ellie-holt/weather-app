@@ -192,6 +192,9 @@ h4.day {
   .temperature-unit {
     font-size: 2rem;
   }
+  .weekly-forecast {
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -267,9 +270,9 @@ h4.day {
   }
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 472px) {
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   .icon-column {
     justify-content: center;
