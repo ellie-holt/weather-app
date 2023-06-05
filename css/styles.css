@@ -28,6 +28,7 @@ img {
   max-width: 200px;
   object-fit: cover;
   z-index: 1;
+  overflow: visible;
 }
 
 .wrapper {
@@ -105,6 +106,10 @@ img {
 .max-min {
   font-size: 1.3rem;
   white-space: nowrap;
+}
+
+.break-point::before {
+  content: "| ";
 }
 
 .description {
@@ -256,7 +261,7 @@ h4.day {
   }
   .break-point::before {
     content: "\a";
-    display: block;
+    white-space: pre;
   }
   .description {
     width: 100%;
