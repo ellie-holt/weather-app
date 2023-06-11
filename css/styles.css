@@ -199,6 +199,15 @@ h4.day {
   .forecast-contents {
     align-items: center;
   }
+  .forecast-col:first-of-type,
+  .forecast-col:nth-of-type(4) {
+    border-left: none;
+  }
+  .forecast-col:nth-of-type(1),
+  .forecast-col:nth-of-type(2),
+  .forecast-col:nth-of-type(3) {
+    border-bottom: solid 3px aliceblue;
+  }
 }
 
 /*sm breakpoint*/
@@ -307,6 +316,19 @@ h4.day {
   }
   .wind::after {
     content: "\00a0";
+  }
+  .forecast-col:nth-of-type(4) {
+    border-left: solid 3px aliceblue;
+  }
+  .forecast-col:nth-of-type(odd) {
+    border-left: none;
+  }
+  .forecast-col {
+    border-bottom: solid 3px aliceblue;
+  }
+  .forecast-col:nth-last-of-type(2),
+  .forecast-col:last-of-type {
+    border-bottom: none;
   }
 }
 
