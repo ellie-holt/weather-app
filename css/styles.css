@@ -9,7 +9,7 @@
 body {
   font-family: "Fira Sans", sans-serif;
   line-height: 0.9;
-  background-color: var(--background-colour-dark);
+  background-color: aliceblue;
 }
 
 h1 {
@@ -41,10 +41,10 @@ img {
 }
 
 .wrapper {
-  border: 1px solid rgba(128, 128, 128, 0.356);
+  /* border: 1px solid rgba(128, 128, 128, 0.356); */
   max-width: 1000px;
   height: 100%;
-  background-color: var(--background-colour);
+  background-color: white;
 }
 
 .inactive {
@@ -58,10 +58,13 @@ img {
   max-width: 800px;
   width: 95%;
   background-color: var(--background-colour-light);
+  border: solid 6px aliceblue;
+  border-radius: 12px;
 }
 
 [class$="-column"] {
   border: solid 3px aliceblue;
+  border-radius: 1px;
   display: flex;
   padding-top: 10px;
 }
@@ -226,6 +229,16 @@ h4.day {
   }
 }
 
+@media screen and (max-width: 610px) {
+  .max-min {
+    white-space: normal;
+  }
+  .break-point::before {
+    content: "\a";
+    white-space: pre;
+  }
+}
+
 /*xs breakpoint*/
 
 @media screen and (max-width: 575.98px) {
@@ -272,13 +285,6 @@ h4.day {
   .city {
     text-align: center;
     font-size: 2.4rem;
-  }
-  .max-min {
-    white-space: normal;
-  }
-  .break-point::before {
-    content: "\a";
-    white-space: pre;
   }
   .description {
     width: 100%;
