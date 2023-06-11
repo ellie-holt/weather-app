@@ -151,10 +151,17 @@ img {
   margin: 25px auto;
   max-width: 900px;
   width: 95%;
+  border: solid 6px aliceblue;
+  border-radius: 12px;
 }
 
 .forecast-col {
-  border: solid 1px rgba(128, 128, 128, 0.356);
+  border-left: solid 3px aliceblue;
+  padding: 0 3px;
+}
+
+.forecast-col:first-of-type {
+  border-left: none;
 }
 
 .forecast-contents {
