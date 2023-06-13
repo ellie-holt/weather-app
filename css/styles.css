@@ -1,15 +1,16 @@
-/* :root {
-  --background-colour: #8da2bf;
-  --background-colour-dark: #5e748d;
-  --background-colour-light: #dbe9fd;
-  --element-colour: #cae5f2;
-  --accent-colour: #b0b0b0;
-} */
+:root {
+  --primary-background-colour: #e2ebf8;
+  --secondary-background-colour: #ffffff;
+  --primary-element-colour: #8ea9d5;
+  --secondary-element-colour: #466ca4;
+  --light-colour: #ffffff;
+  --dark-colour: #0f3b7b;
+}
 
 body {
   font-family: "Fira Sans", sans-serif;
   line-height: 0.9;
-  background-color: aliceblue;
+  background-color: var(--primary-background-colour);
 }
 
 h1 {
@@ -25,12 +26,27 @@ p {
   font-size: 1.3rem;
 }
 
-a {
+a,
+a:link {
   text-decoration: none;
+  color: var(--secondary-element-colour);
+  font-weight: bold;
+}
+
+a:visited {
+  color: var(--dark-colour);
 }
 
 a:hover {
   text-decoration: underline;
+  color: var(--dark-colour);
+}
+
+a:active {
+  position: relative;
+  right: 1px;
+  top: 1px;
+  color: var(--primary-element-colour);
 }
 
 img {
@@ -40,11 +56,53 @@ img {
   overflow: visible;
 }
 
+.form-control {
+  border: solid 2px var(--primary-element-colour);
+  border-right: none;
+}
+
+.btn.search {
+  background-color: var(--primary-background-colour);
+}
+
+.btn-outline {
+  border: solid 3px var(--secondary-element-colour);
+  background-color: white;
+}
+
+.btn-outline:hover {
+  background-color: var(--secondary-element-colour);
+  color: var(--light-colour);
+}
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  background-color: var(--primary-element-colour);
+  border-color: var(--primary-element-colour);
+  color: var(--light-colour);
+}
+
+#celcius-button,
+#farenheit-button {
+  border-right: solid 1.5px var(--secondary-element-colour);
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+#mph-button,
+#metrespersecond-button {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  border-left: solid 1.5px var(--secondary-element-colour);
+}
+
 .wrapper {
-  /* border: 1px solid rgba(128, 128, 128, 0.356); */
   max-width: 1000px;
   height: 100%;
-  background-color: white;
+  background-color: var(--secondary-background-colour);
 }
 
 .inactive {
@@ -57,13 +115,12 @@ img {
   margin: 25px auto;
   max-width: 800px;
   width: 95%;
-  background-color: var(--background-colour-light);
-  border: solid 6px aliceblue;
+  border: solid 6px var(--primary-background-colour);
   border-radius: 12px;
 }
 
 [class$="-column"] {
-  border: solid 3px aliceblue;
+  border: solid 3px var(--primary-background-colour);
   border-radius: 1px;
   display: flex;
   padding-top: 10px;
@@ -77,7 +134,7 @@ img {
 
 .calender-column {
   justify-content: space-between;
-  background-color: aliceblue;
+  background-color: var(--primary-background-colour);
 }
 
 .temp-column {
@@ -151,12 +208,12 @@ img {
   margin: 25px auto;
   max-width: 900px;
   width: 95%;
-  border: solid 6px aliceblue;
+  border: solid 6px var(--primary-background-colour);
   border-radius: 12px;
 }
 
 .forecast-col {
-  border-left: solid 3px aliceblue;
+  border-left: solid 3px var(--primary-background-colour);
   padding: 0 3px;
 }
 
@@ -206,7 +263,7 @@ h4.day {
   .forecast-col:nth-of-type(1),
   .forecast-col:nth-of-type(2),
   .forecast-col:nth-of-type(3) {
-    border-bottom: solid 3px aliceblue;
+    border-bottom: solid 3px var(--primary-background-colour);
   }
 }
 
@@ -278,11 +335,11 @@ h4.day {
     justify-content: center;
   }
   .temp-column {
-    background-color: aliceblue;
+    background-color: var(--primary-background-colour);
   }
   .icon-column {
     justify-content: flex-start;
-    background-color: aliceblue;
+    background-color: var(--primary-background-colour);
   }
   .description-column {
     flex-direction: row;
@@ -318,13 +375,13 @@ h4.day {
     content: "\00a0";
   }
   .forecast-col:nth-of-type(4) {
-    border-left: solid 3px aliceblue;
+    border-left: solid 3px var(--primary-background-colour);
   }
   .forecast-col:nth-of-type(odd) {
     border-left: none;
   }
   .forecast-col {
-    border-bottom: solid 3px aliceblue;
+    border-bottom: solid 3px var(--primary-background-colour);
   }
   .forecast-col:nth-last-of-type(2),
   .forecast-col:last-of-type {

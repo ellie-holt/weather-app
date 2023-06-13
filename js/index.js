@@ -30,11 +30,11 @@ function formatTime(time) {
 }
 
 function formatDay(timestamp) {
-  console.log(timestamp);
+  // console.log(timestamp);
   let date = new Date(timestamp * 1000);
-  console.log(date);
+  // console.log(date);
   let day = date.getDay();
-  console.log(day);
+  // console.log(day);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   return days[day];
 }
@@ -90,13 +90,37 @@ function showWeather(response) {
   iconElement.setAttribute("src", `../img/${iconCode}.svg`);
   iconElement.setAttribute("alt", description);
 
+  setTheme(response.data.weather[0].icon);
   getForecast(response.data.coord);
+}
+
+function setTheme(iconCode) {
+  let style = document.documentElement.style;
+  switch (iconCode) {
+    case "01d":
+      style.setProperty("--primary-background-colour", "#e2ebf8");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--primary-element-colour", "#8ea9d5");
+      style.setProperty("--secondary-element-colour", "#466ca4");
+      style.setProperty("--light-colour", "#ffffff");
+      style.setProperty("--dark-colour", "#0f3b7b");
+      break;
+    default:
+      style.setProperty("--primary-background-colour", "#e2ebf8");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--primary-element-colour", "#8ea9d5");
+      style.setProperty("--secondary-element-colour", "#466ca4");
+      style.setProperty("--light-colour", "#ffffff");
+      style.setProperty("--dark-colour", "#0f3b7b");
+      break;
+  }
+  console.log(iconCode);
 }
 
 function getForecast(coordinates) {
   let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  // console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
 
@@ -143,7 +167,7 @@ function searchCity(event) {
   console.log(userCity);
   let apiKey = "ece424250b8bd634c2653a8886cce7a1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  // console.log(apiUrl);
   let userCityHeading = document.querySelector("#user-city");
   userCityHeading.innerHTML = `${userCity}`;
   axios.get(apiUrl).then(showWeather);
@@ -155,7 +179,7 @@ function getPosition(position) {
   let currentLon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  console.log(apiUrl);
+  // console.log(apiUrl);
 }
 
 function getCurrentLocation(event) {
