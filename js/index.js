@@ -17,7 +17,6 @@ function formatDate(date) {
   let currentDay = days[date.getDay()];
   let currentMonth = months[date.getMonth()];
   let currentDate = String(date.getDate()).padStart(2, "0");
-
   let formattedDate = `${currentDay} ${currentDate} ${currentMonth}`;
   return formattedDate;
 }
@@ -63,19 +62,19 @@ function showWeather(response) {
   toCelciusButton.classList.add("inactive");
   toFarenheitButton.classList.remove("inactive");
 
-  metrespersecondWindSpeed = response.data.wind.speed;
+  msWindSpeed = response.data.wind.speed;
 
   //same as above
   let currentWindUnitElement = document.querySelector("#wind-unit");
   currentWindUnitElement.innerHTML = " m/s";
-  toMetrespersecondButton.classList.add("inactive");
+  toMsButton.classList.add("inactive");
   toMphButton.classList.remove("inactive");
 
   let currentTemp = Math.round(celciusTemperature);
   let maxTemp = Math.round(maxCelciusTemperature);
   let minTemp = Math.round(minCelciusTemperature);
   let humidity = `${response.data.main.humidity}%`;
-  let wind = Math.round(metrespersecondWindSpeed * 10) / 10;
+  let wind = Math.round(msWindSpeed * 10) / 10;
   let description = response.data.weather[0].description;
   let iconCode = response.data.weather[0].icon;
 
@@ -90,8 +89,8 @@ function showWeather(response) {
   iconElement.setAttribute("src", `../img/${iconCode}.svg`);
   iconElement.setAttribute("alt", description);
 
-  getForecast(response.data.coord);
   setTheme(response.data.weather[0].icon);
+  getForecast(response.data.coord);
 }
 
 function setTheme(iconCode) {
@@ -208,15 +207,14 @@ function setTheme(iconCode) {
 function getForecast(coordinates) {
   let apiKey = "6782253072f7d90462731a624097fc54";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
 
 function showForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = ``;
+
   forecast.forEach(function (day, index) {
     if (index > 0 && index < 7) {
       let iconCode = day.weather[0].icon;
@@ -252,10 +250,8 @@ function searchCity(event) {
   event.preventDefault();
   let searchBar = document.querySelector("#search-bar");
   let userCity = searchBar.value;
-  console.log(userCity);
   let apiKey = "ece424250b8bd634c2653a8886cce7a1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
-  // console.log(apiUrl);
   let userCityHeading = document.querySelector("#user-city");
   userCityHeading.innerHTML = `${userCity}`;
   axios.get(apiUrl).then(showWeather);
@@ -267,7 +263,6 @@ function getPosition(position) {
   let currentLon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  // console.log(apiUrl);
 }
 
 function getCurrentLocation(event) {
@@ -324,25 +319,24 @@ function toMph(event) {
   let currentWindValueElement = document.querySelector("#wind-value");
   let currentWindUnitElement = document.querySelector("#wind-unit");
 
-  let mphWindSpeed = metrespersecondWindSpeed * 2.237;
+  let mphWindSpeed = msWindSpeed * 2.237;
 
-  toMetrespersecondButton.classList.remove("inactive");
+  toMsButton.classList.remove("inactive");
   toMphButton.classList.add("inactive");
 
   currentWindValueElement.innerHTML = Math.round(mphWindSpeed * 10) / 10;
   currentWindUnitElement.innerHTML = " mph";
 }
 
-function toMetrespersecond(event) {
+function toMs(event) {
   event.preventDefault();
   let currentWindValueElement = document.querySelector("#wind-value");
   let currentWindUnitElement = document.querySelector("#wind-unit");
 
   toMphButton.classList.remove("inactive");
-  toMetrespersecondButton.classList.add("inactive");
+  toMsButton.classList.add("inactive");
 
-  currentWindValueElement.innerHTML =
-    Math.round(metrespersecondWindSpeed * 10) / 10;
+  currentWindValueElement.innerHTML = Math.round(msWindSpeed * 10) / 10;
   currentWindUnitElement.innerHTML = " m/s";
 }
 
@@ -357,7 +351,7 @@ navigator.geolocation.getCurrentPosition(getPosition);
 let celciusTemperature = null;
 let maxCelciusTemperature = null;
 let minCelciusTemperature = null;
-let metrespersecondWindSpeed = null;
+let msWindSpeed = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
@@ -374,5 +368,5 @@ toCelciusButton.addEventListener("click", toCelcius);
 let toMphButton = document.querySelector("#mph-button");
 toMphButton.addEventListener("click", toMph);
 
-let toMetrespersecondButton = document.querySelector("#metrespersecond-button");
-toMetrespersecondButton.addEventListener("click", toMetrespersecond);
+let toMsButton = document.querySelector("#metrespersecond-button");
+toMsButton.addEventListener("click", toMs);
