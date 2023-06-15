@@ -39,7 +39,6 @@ function formatDay(timestamp) {
 }
 
 function showWeather(response) {
-  console.log(response.data);
   let userCityElement = document.querySelector("#user-city");
   let currentTempElement = document.querySelector("#temp-value");
   let maxTempElement = document.querySelector("#max-temp-value");

@@ -339,6 +339,7 @@ img {
   }
   .temp-column {
     background-color: var(--primary-background-colour);
+    color: var(--alt-font-colour);
   }
   .icon-column {
     background-color: var(--primary-background-colour);
