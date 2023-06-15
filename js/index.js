@@ -124,7 +124,7 @@ function setTheme(iconCode) {
       style.setProperty("--tertiary-background-colour", "#f8f5f9");
       style.setProperty("--primary-element-colour", "#f2e1f8");
       style.setProperty("--secondary-element-colour", "#c2aed1");
-      style.setProperty("--accent-colour", "#725787");
+      style.setProperty("--accent-colour", "#b5b5b5");
       style.setProperty("--alt-font-colour", "#000000");
       break;
     case "03n":
@@ -134,7 +134,7 @@ function setTheme(iconCode) {
       style.setProperty("--tertiary-background-colour", "#e7deea");
       style.setProperty("--primary-element-colour", "#a380af");
       style.setProperty("--secondary-element-colour", "#7f599c");
-      style.setProperty("--accent-colour", "#593d6e");
+      style.setProperty("--accent-colour", "#7a7a7a");
       style.setProperty("--alt-font-colour", "#f8f5f9");
       break;
     case "09d":
@@ -154,7 +154,7 @@ function setTheme(iconCode) {
       style.setProperty("--tertiary-background-colour", "#eaeff8");
       style.setProperty("--primary-element-colour", "#728be4");
       style.setProperty("--secondary-element-colour", "#6e8ac3");
-      style.setProperty("--accent-colour", "#363264");
+      style.setProperty("--accent-colour", "#2EA7E0");
       style.setProperty("--alt-font-colour", "#f6f5f9");
       break;
     case "13d":
