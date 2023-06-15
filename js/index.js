@@ -39,6 +39,7 @@ function formatDay(timestamp) {
 }
 
 function showWeather(response) {
+  console.log(response.data);
   let userCityElement = document.querySelector("#user-city");
   let currentTempElement = document.querySelector("#temp-value");
   let maxTempElement = document.querySelector("#max-temp-value");
@@ -156,6 +157,16 @@ function setTheme(iconCode) {
       style.setProperty("--accent-colour", "#2EA7E0");
       style.setProperty("--alt-font-colour", "#f6f5f9");
       break;
+    case "11d":
+    case "11n":
+      style.setProperty("--primary-background-colour", "#2a2648");
+      style.setProperty("--secondary-background-colour", "#ebebeb");
+      style.setProperty("--tertiary-background-colour", "#efedfc");
+      style.setProperty("--primary-element-colour", "#99989e");
+      style.setProperty("--secondary-element-colour", "#7571b3");
+      style.setProperty("--accent-colour", "#817aea");
+      style.setProperty("--alt-font-colour", "#f7f5f9");
+      break;
     case "13d":
       style.setProperty("--primary-background-colour", "#c8f0fd");
       style.setProperty("--secondary-background-colour", "#ffffff");
@@ -189,7 +200,7 @@ function setTheme(iconCode) {
       style.setProperty("--tertiary-background-colour", "#f8ecf7");
       style.setProperty("--primary-element-colour", "#af80ad");
       style.setProperty("--secondary-element-colour", "#9c599a");
-      style.setProperty("--accent-colour", "#6b3d6e");
+      style.setProperty("--accent-colour", "#d87dd8");
       style.setProperty("--alt-font-colour", "#f9f5f8");
       break;
     default:
@@ -255,6 +266,7 @@ function searchCity(event) {
   let userCityHeading = document.querySelector("#user-city");
   userCityHeading.innerHTML = `${userCity}`;
   axios.get(apiUrl).then(showWeather);
+  console.log(apiUrl);
 }
 
 function getPosition(position) {
