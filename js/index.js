@@ -90,37 +90,125 @@ function showWeather(response) {
   iconElement.setAttribute("src", `../img/${iconCode}.svg`);
   iconElement.setAttribute("alt", description);
 
-  setTheme(response.data.weather[0].icon);
   getForecast(response.data.coord);
+  setTheme(response.data.weather[0].icon);
 }
 
 function setTheme(iconCode) {
   let style = document.documentElement.style;
   switch (iconCode) {
     case "01d":
+    case "02d":
+      style.setProperty("--primary-background-colour", "#D4EDFC");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#F2F8FC");
+      style.setProperty("--primary-element-colour", "#C6E8FF");
+      style.setProperty("--secondary-element-colour", "#87BFE5");
+      style.setProperty("--accent-colour", "#efc200");
+      style.setProperty("--alt-font-colour", "#000000");
+      break;
+    case "01n":
+    case "02n":
+      style.setProperty("--primary-background-colour", "#15274b");
+      style.setProperty("--secondary-background-colour", "#f7f8fc");
+      style.setProperty("--tertiary-background-colour", "#fcfbf2");
+      style.setProperty("--primary-element-colour", "#a3aed7");
+      style.setProperty("--secondary-element-colour", "#4f72b7");
+      style.setProperty("--accent-colour", "#201b56");
+      style.setProperty("--alt-font-colour", "#f6f5f9");
+      break;
+    case "03d":
+    case "04d":
+      style.setProperty("--primary-background-colour", "#e2d8ea");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#f8f5f9");
+      style.setProperty("--primary-element-colour", "#f2e1f8");
+      style.setProperty("--secondary-element-colour", "#c2aed1");
+      style.setProperty("--accent-colour", "#725787");
+      style.setProperty("--alt-font-colour", "#000000");
+      break;
+    case "03n":
+    case "04n":
+      style.setProperty("--primary-background-colour", "#603286");
+      style.setProperty("--secondary-background-colour", "#faf7fc");
+      style.setProperty("--tertiary-background-colour", "#e7deea");
+      style.setProperty("--primary-element-colour", "#a380af");
+      style.setProperty("--secondary-element-colour", "#7f599c");
+      style.setProperty("--accent-colour", "#593d6e");
+      style.setProperty("--alt-font-colour", "#f8f5f9");
+      break;
+    case "09d":
+    case "10d":
       style.setProperty("--primary-background-colour", "#e2ebf8");
       style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#ffffff");
       style.setProperty("--primary-element-colour", "#8ea9d5");
       style.setProperty("--secondary-element-colour", "#466ca4");
-      style.setProperty("--light-colour", "#ffffff");
-      style.setProperty("--dark-colour", "#0f3b7b");
+      style.setProperty("--accent-colour", "#0f3b7b");
+      style.setProperty("--alt-font-colour", "#000000");
+      break;
+    case "09n":
+    case "10n":
+      style.setProperty("--primary-background-colour", "#173b84");
+      style.setProperty("--secondary-background-colour", "#f7f8fc");
+      style.setProperty("--tertiary-background-colour", "#eaeff8");
+      style.setProperty("--primary-element-colour", "#728be4");
+      style.setProperty("--secondary-element-colour", "#6e8ac3");
+      style.setProperty("--accent-colour", "#363264");
+      style.setProperty("--alt-font-colour", "#f6f5f9");
+      break;
+    case "13d":
+      style.setProperty("--primary-background-colour", "#c8f0fd");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#f6fdff");
+      style.setProperty("--primary-element-colour", "#97dff7");
+      style.setProperty("--secondary-element-colour", "#6ccae9");
+      style.setProperty("--accent-colour", "#0191c1");
+      style.setProperty("--alt-font-colour", "#000000");
+      break;
+    case "13n":
+      style.setProperty("--primary-background-colour", "#387bb5");
+      style.setProperty("--secondary-background-colour", "#f7fafc");
+      style.setProperty("--tertiary-background-colour", "#eaf3f8");
+      style.setProperty("--primary-element-colour", "#79bbe2");
+      style.setProperty("--secondary-element-colour", "#7ba4d2");
+      style.setProperty("--accent-colour", "#324464");
+      style.setProperty("--alt-font-colour", "#f9f5f8");
+      break;
+    case "50d":
+      style.setProperty("--primary-background-colour", "#f6e4ee");
+      style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#ffffe");
+      style.setProperty("--primary-element-colour", "#ddaec9");
+      style.setProperty("--secondary-element-colour", "#d288b3");
+      style.setProperty("--accent-colour", "#af4684");
+      style.setProperty("--alt-font-colour", "#000000");
+      break;
+    case "50n":
+      style.setProperty("--primary-background-colour", "#863271");
+      style.setProperty("--secondary-background-colour", "#fcf7fc");
+      style.setProperty("--tertiary-background-colour", "#f8ecf7");
+      style.setProperty("--primary-element-colour", "#af80ad");
+      style.setProperty("--secondary-element-colour", "#9c599a");
+      style.setProperty("--accent-colour", "#6b3d6e");
+      style.setProperty("--alt-font-colour", "#f9f5f8");
       break;
     default:
       style.setProperty("--primary-background-colour", "#e2ebf8");
       style.setProperty("--secondary-background-colour", "#ffffff");
+      style.setProperty("--tertiary-background-colour", "#ffffff");
       style.setProperty("--primary-element-colour", "#8ea9d5");
       style.setProperty("--secondary-element-colour", "#466ca4");
-      style.setProperty("--light-colour", "#ffffff");
-      style.setProperty("--dark-colour", "#0f3b7b");
-      break;
+      style.setProperty("--accent-colour", "#0f3b7b");
+      style.setProperty("--alt-font-colour", "#000000");
   }
   console.log(iconCode);
 }
 
 function getForecast(coordinates) {
-  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
+  let apiKey = "6782253072f7d90462731a624097fc54";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
-  // console.log(apiUrl);
+  console.log(apiUrl);
   axios.get(apiUrl).then(showForecast);
 }
 

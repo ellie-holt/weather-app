@@ -1,10 +1,11 @@
 :root {
-  --primary-background-colour: #e2ebf8;
-  --secondary-background-colour: #ffffff;
-  --primary-element-colour: #8ea9d5;
-  --secondary-element-colour: #466ca4;
-  --light-colour: #ffffff;
-  --dark-colour: #0f3b7b;
+  --primary-background-colour: #fff;
+  --secondary-background-colour: #fff;
+  --tertiary-background-colour: #fff;
+  --primary-element-colour: #fff;
+  --secondary-element-colour: #fff;
+  --accent-colour: #fff;
+  --alt-font-colour: #fff;
 }
 
 body {
@@ -25,21 +26,20 @@ h3 {
 p {
   font-size: 1.3rem;
 }
-
 a,
 a:link {
   text-decoration: none;
-  color: var(--secondary-element-colour);
+  color: var(--accent-colour);
   font-weight: bold;
 }
 
 a:visited {
-  color: var(--dark-colour);
+  color: var(--accent-colour);
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--dark-colour);
+  color: var(--secondary-element-colour);
 }
 
 a:active {
@@ -63,16 +63,17 @@ img {
 
 .btn.search {
   background-color: var(--primary-background-colour);
+  color: var(--alt-font-colour);
 }
 
 .btn-outline {
   border: solid 3px var(--secondary-element-colour);
-  background-color: white;
+  background-color: var(--tertiary-background-colour);
 }
 
 .btn-outline:hover {
   background-color: var(--secondary-element-colour);
-  color: var(--light-colour);
+  color: var(--tertiary-background-colour);
 }
 
 .btn-check:checked + .btn,
@@ -82,7 +83,7 @@ img {
 :not(.btn-check) + .btn:active {
   background-color: var(--primary-element-colour);
   border-color: var(--primary-element-colour);
-  color: var(--light-colour);
+  color: var(--tertiary-background-colour);
 }
 
 #celcius-button,
@@ -121,7 +122,7 @@ img {
 
 [class$="-column"] {
   border: solid 3px var(--primary-background-colour);
-  border-radius: 1px;
+  background-color: var(--tertiary-background-colour);
   display: flex;
   padding-top: 10px;
 }
@@ -135,6 +136,7 @@ img {
 .calender-column {
   justify-content: space-between;
   background-color: var(--primary-background-colour);
+  color: var(--alt-font-colour);
 }
 
 .temp-column {
@@ -209,6 +211,7 @@ img {
   max-width: 900px;
   width: 95%;
   border: solid 6px var(--primary-background-colour);
+  background-color: var(--tertiary-background-colour);
   border-radius: 12px;
 }
 
