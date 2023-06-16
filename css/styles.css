@@ -7,11 +7,12 @@
   --accent-colour: #0f3b7b;
   --focus-colour: #466ca450;
   --alt-font-colour: #000000;
+  --selection-color: #000000;
 }
 
 ::selection {
   background-color: var(--secondary-element-colour);
-  color: var(--alt-font-colour);
+  color: var(--selection-colour);
 }
 
 body {
