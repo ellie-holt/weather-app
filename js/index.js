@@ -360,13 +360,6 @@ function toMs(event) {
   currentWindUnitElement.innerHTML = " m/s";
 }
 
-// function loadPage() {
-//   document.querySelector("spinner-border").style.display = "none";
-//   document.querySelector("container").style.visibility = "visible";
-// }
-
-// window.addEventListener("load", loadPage);
-
 let now = new Date();
 let fullDate = document.querySelector("#full-date");
 let currentTime = document.querySelector("#current-time");
