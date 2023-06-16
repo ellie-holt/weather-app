@@ -29,11 +29,8 @@ function formatTime(time) {
 }
 
 function formatDay(timestamp) {
-  // console.log(timestamp);
   let date = new Date(timestamp * 1000);
-  // console.log(date);
   let day = date.getDay();
-  // console.log(day);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   return days[day];
 }
@@ -52,7 +49,7 @@ function showWeather(response) {
   maxCelciusTemperature = response.data.main.temp_max;
   minCelciusTemperature = response.data.main.temp_min;
 
-  //This is to revert back to celcius as the default to prevent bugs. A different work-around would probably be better but this works for the time being.
+  //To revert temp back to celcius as a default to prevent bugs
   let currentTempUnitElement = document.querySelector("#temp-unit");
   currentTempUnitElement.innerHTML = "°C";
   let maxTempUnitElement = document.querySelector("#max-temp-unit");
@@ -64,7 +61,7 @@ function showWeather(response) {
 
   msWindSpeed = response.data.wind.speed;
 
-  //same as above
+  //To revert wind speed back to m/s
   let currentWindUnitElement = document.querySelector("#wind-unit");
   currentWindUnitElement.innerHTML = " m/s";
   toMsButton.classList.add("inactive");
@@ -98,13 +95,13 @@ function setTheme(iconCode) {
   switch (iconCode) {
     case "01d":
     case "02d":
-      style.setProperty("--primary-background-colour", "#D4EDFC");
+      style.setProperty("--primary-background-colour", "#d4edfc");
       style.setProperty("--secondary-background-colour", "#ffffff");
-      style.setProperty("--tertiary-background-colour", "#F2F8FC");
-      style.setProperty("--primary-element-colour", "#C6E8FF");
-      style.setProperty("--secondary-element-colour", "#87BFE5");
+      style.setProperty("--tertiary-background-colour", "#f2f8fc");
+      style.setProperty("--primary-element-colour", "#c6e8ff");
+      style.setProperty("--secondary-element-colour", "#87bfe5");
       style.setProperty("--accent-colour", "#efc200");
-      style.setProperty("--focus-colour", "#87BFE550");
+      style.setProperty("--focus-colour", "#87bfe550");
       style.setProperty("--alt-font-colour", "#000000");
       break;
     case "01n":
@@ -158,7 +155,7 @@ function setTheme(iconCode) {
       style.setProperty("--tertiary-background-colour", "#eaeff8");
       style.setProperty("--primary-element-colour", "#728be4");
       style.setProperty("--secondary-element-colour", "#6e8ac3");
-      style.setProperty("--accent-colour", "#2EA7E0");
+      style.setProperty("--accent-colour", "#2ea7e0");
       style.setProperty("--focus-colour", "#6e8ac350");
       style.setProperty("--alt-font-colour", "#f6f5f9");
       break;
@@ -227,7 +224,7 @@ function setTheme(iconCode) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "6782253072f7d90462731a624097fc54";
+  let apiKey = "2bd326a60dc89a53287e446e819664df";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
@@ -281,9 +278,9 @@ function searchCity(event) {
 }
 
 function getPosition(position) {
-  let apiKey = "ece424250b8bd634c2653a8886cce7a1";
   let currentLat = position.coords.latitude;
   let currentLon = position.coords.longitude;
+  let apiKey = "ece424250b8bd634c2653a8886cce7a1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }

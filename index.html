@@ -86,7 +86,7 @@
       </form>
 
       <!--today's weather-->
-      <div class="current-weather row">
+      <div class="row current-weather">
         <div class="col-sm-6 city-column">
           <h2 id="user-city" class="city">London</h2>
         </div>
@@ -134,7 +134,41 @@
         Weather icons sourced
         <a href="https://www.iconfinder.com/iconsets/weather-color-2">here</a>
       </p>
+      <button
+        class="btn btn-outline"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#aboutApp"
+        aria-expanded="false"
+        aria-controls="aboutApp"
+      >
+        About this app
+      </button>
+      <div class="collapse" id="aboutApp">
+        <div class="card card-body mt-4 about">
+          <p class="about-app">
+            This is a weather app created as part of the SheCodes Plus course.
+            It is far from perfect, but building this app has taught me a lot,
+            particularly about using APIs and CSS frameworks like Bootstrap.
+            Although it was not required for the course, I included some extra
+            features such as weather-depended colour themes and some extra unit
+            conversion. As I learn more, I am keen to update this app by
+            extended the temperature conversion function to the forecast and
+            incorperating accurate times and dates for different time zones.
+          </p>
+          <p class="about-app">
+            For now, however, I must press submit! Thanks for checking out this
+            project!
+          </p>
+        </div>
+      </div>
     </div>
+
     <script src="js/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
