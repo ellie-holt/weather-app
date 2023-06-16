@@ -1,12 +1,16 @@
 :root {
-  --primary-background-colour: #fff;
-  --secondary-background-colour: #fff;
-  --tertiary-background-colour: #fff;
-  --primary-element-colour: #fff;
-  --secondary-element-colour: #fff;
-  --accent-colour: #fff;
-  --focus-colour: #fff;
-  --alt-font-colour: #fff;
+  --primary-background-colour: #e2ebf8;
+  --secondary-background-colour: #ffffff;
+  --tertiary-background-colour: #ffffff;
+  --primary-element-colour: #8ea9d5;
+  --secondary-element-colour: #466ca4;
+  --accent-colour: #0f3b7b;
+  --focus-colour: #466ca450;
+  --alt-font-colour: #000000;
+}
+
+::selection {
+  background-color: var(--secondary-element-colour);
 }
 
 body {
@@ -194,6 +198,10 @@ img {
 
 .description::first-letter {
   text-transform: capitalize;
+}
+
+.description::first-letter ::selection {
+  background-color: var(--secondary-element-colour);
 }
 
 .value {
