@@ -5,6 +5,7 @@
   --primary-element-colour: #fff;
   --secondary-element-colour: #fff;
   --accent-colour: #fff;
+  --focus-colour: #fff;
   --alt-font-colour: #fff;
 }
 
@@ -60,6 +61,11 @@ img {
 .form-control {
   border: solid 2px var(--primary-element-colour);
   border-right: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem var(--focus-colour);
+  border-color: var(--secondary-element-colour);
 }
 
 .btn.search {
