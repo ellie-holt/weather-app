@@ -146,7 +146,16 @@ function setTheme(iconCode) {
       style.setProperty("--secondary-element-colour", "#466ca4");
       style.setProperty("--accent-colour", "#0f3b7b");
       style.setProperty("--focus-colour", "#466ca450");
-      style.setProperty("--alt-font-colour", "#000000");
+      style.setProperty("--alt-font-colour", "#ffffff");
+      document
+        .querySelector(".calender-column")
+        .style.setProperty("color", "#000000");
+      document
+        .querySelector(".btn.search")
+        .style.setProperty("color", "#000000");
+      document
+        .querySelector(".temp-column")
+        .style.setProperty("color", "#000000");
       break;
     case "09n":
     case "10n":

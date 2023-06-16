@@ -11,6 +11,7 @@
 
 ::selection {
   background-color: var(--secondary-element-colour);
+  color: var(--alt-font-colour);
 }
 
 body {
