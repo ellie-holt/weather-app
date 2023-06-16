@@ -200,10 +200,6 @@ img {
   text-transform: capitalize;
 }
 
-.description::first-letter ::selection {
-  background-color: var(--secondary-element-colour);
-}
-
 .value {
   font-weight: bold;
 }
