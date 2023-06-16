@@ -209,7 +209,7 @@ function setTheme(iconCode) {
       style.setProperty("--accent-colour", "#af4684");
       style.setProperty("--focus-colour", "#d288b350");
       style.setProperty("--alt-font-colour", "#000000");
-      style.setProperty("--selection-colour", "#000000");
+      style.setProperty("--selection-colour", "#ffffff");
       break;
     case "50n":
       style.setProperty("--primary-background-colour", "#863271");
