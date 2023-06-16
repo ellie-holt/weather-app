@@ -76,6 +76,7 @@ function showWeather(response) {
   let iconCode = response.data.weather[0].icon;
 
   userCityElement.innerHTML = response.data.name;
+  userCityElement.classList.remove("load-message");
   currentTempElement.innerHTML = currentTemp;
   maxTempElement.innerHTML = maxTemp;
   minTempElement.innerHTML = minTemp;
@@ -285,6 +286,7 @@ function searchCity(event) {
   let apiKey = "ece424250b8bd634c2653a8886cce7a1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${apiKey}&units=metric`;
   let userCityHeading = document.querySelector("#user-city");
+  userCityHeading.classList.remove("load-message");
   userCityHeading.innerHTML = `${userCity}`;
   axios.get(apiUrl).then(showWeather);
   console.log(apiUrl);
