@@ -21,6 +21,13 @@ body {
   line-height: 0.9;
 }
 
+.wrapper {
+  background-color: var(--secondary-background-colour);
+  height: 100%;
+  margin: 15px auto;
+  max-width: 1000px;
+}
+
 h1 {
   font-size: 2.5rem;
   font-style: italic;
@@ -105,12 +112,6 @@ img {
   border-left: solid 1.5px var(--secondary-element-colour);
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
-}
-
-.wrapper {
-  background-color: var(--secondary-background-colour);
-  height: 100%;
-  max-width: 1000px;
 }
 
 .inactive {
@@ -345,6 +346,9 @@ img {
 /*xs breakpoint*/
 
 @media screen and (max-width: 575.98px) {
+  .wrapper {
+    margin: 0 auto;
+  }
   h1 {
     font-size: 1.8rem;
   }
